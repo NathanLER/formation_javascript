@@ -29,7 +29,7 @@ for (let i = 0; i < 24; i++) {
     document.getElementById('cont').appendChild(clone)
 }
 
-startTime = new Date();
+let startTime = null
 
 let index_selc=null
 let carte_supr=0
@@ -46,8 +46,11 @@ document.querySelectorAll('.carte').forEach(function(carte, index) {
             if (index_selc == null) {
                 carte.classList.add('green')
                 index_selc = index
+                if (startTime == null){
+                    startTime = new Date();
+                }
             }
-            else if (tab2[index]== tab2[index_selc]){
+            else if (tab2[index]===tab2[index_selc]){
                 
                 carte_img.remove()
                 document.querySelectorAll('.carte')[index_selc].classList.remove('green')
@@ -63,7 +66,7 @@ document.querySelectorAll('.carte').forEach(function(carte, index) {
                 
                 document.querySelectorAll('.carte')[index_selc].classList.remove('green')
                 index_selc=null
-                carte_supr+=1
+                
 
             }
         }
